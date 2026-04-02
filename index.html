@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>PreLoved Fashion Store</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    padding-top: 70px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: gold;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd47');
+    background-size: cover;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-box input:focus {
+    border-color: gold;
+    outline: none;
+}
+
+.search-box button {
+    padding: 10px 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: gold;
+    color: black;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+aside {
+    width: 25%;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    background: white;
+    border-radius: 10px;
+}
+
+aside input[type="checkbox"] {
+    accent-color: black;
+}
+
+main {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+main h2,
+main table {
+    grid-column: 1 / -1;
+}
+
+article {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+    transition: 0.3s;
+    animation: fadeIn 0.8s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+article img {
+    width: 100%;
+    max-width: 150px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+footer {
+    background: #111;
+    color: white;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media(max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside, main {
+        width: 100%;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#">Beranda</a>
+    <a href="#">Produk</a>
+    <a href="#">Jual Barang</a>
+    <a href="#">Kontak</a>
+</nav>
+
+<header>
+    <img src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/06/fashion-logos.jpg" width="100">
+    <h1>PreLoved Fashion Store</h1>
+</header>
+
+<hr>
+
+<section>
+    <h2>Welcome to PreLoved Fashion Store!</h2>
+    <p>Temukan berbagai fashion pre-loved dengan kualitas terbaik dan harga terjangkau.</p>
+</section>
+
+<div class="search-box">
+    <input type="text" placeholder="Cari produk...">
+    <button>Cari</button>
+</div>
+
+<hr>
+
+<div class="container">
+
+    <aside>
+        <h2>Statistik Toko</h2>
+        <hr>
+        <p>Total Produk: 120</p>
+        <p>Produk Terjual: 85</p>
+        <p>User Terdaftar: 60</p>
+        <p>Kategori Fashion: 10</p>
+
+        <hr>
+
+        <h3>Filter</h3>
+        <label><input type="checkbox"> Jaket</label><br>
+        <label><input type="checkbox"> Tas</label><br>
+        <label><input type="checkbox"> Sepatu</label>
+    </aside>
+
+    <main>
+        <h2>Produk Terbaru</h2>
+
+        <article>
+            <h3>Jaket Denim Saint Laurent 1998</h3>
+            <img src="https://tse2.mm.bing.net/th/id/OIP.qTyj-wAIfZbicbwdlmpvrAHaHa?pid=Api&P=0&h=220">
+            <p>Kondisi: 90% Like New</p>
+            <p>Harga: Rp5.150.000</p>
+        </article>
+
+        <article>
+            <h3>Loewe Men Bag</h3>
+            <img src="https://cdn.modesens.com/availability/51504540?w=400">
+            <p>Kondisi: Bekas Pakai</p>
+            <p>Harga: Rp7.395.000</p>
+        </article>
+
+        <article>
+            <h3>Golden Goose Sneakers</h3>
+            <img src="https://cdnb.lystit.com/photos/1b7e-2014/03/27/golden-goose-gray-superstar-sneakers-product-1-18719068-3-766571630-normal.jpeg">
+            <p>Kondisi: Sangat Baik</p>
+            <p>Harga: Rp3.450.000</p>
+        </article>
+
+        <h2>Daftar Produk</h2>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Kondisi</th>
+                <th>Harga</th>
+            </tr>
+            <tr>
+                <td>Jaket Denim</td>
+                <td>Like New</td>
+                <td>Rp5.150.000</td>
+            </tr>
+            <tr>
+                <td>Loewe Bag</td>
+                <td>Bekas</td>
+                <td>Rp7.395.000</td>
+            </tr>
+        </table>
+
+    </main>
+
+</div>
+
+<hr>
+
+<footer>
+    <div>
+        <h3>Tentang</h3>
+        <p>PreLoved Fashion Store</p>
+    </div>
+    <div>
+        <h3>Menu</h3>
+        <p>Produk</p>
+        <p>Jual</p>
+    </div>
+    <div>
+        <h3>Kontak</h3>
+        <p>Email: info@gmail.com</p>
+    </div>
+</footer>
+
+</body>
+</html>
