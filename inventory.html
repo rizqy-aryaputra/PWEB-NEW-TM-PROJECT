@@ -1,0 +1,193 @@
+<!-- <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventory</title>
+
+<style>
+body {font-family:Arial;padding:20px;background:#f5f5f5;}
+
+form {background:white;padding:20px;margin-bottom:20px;}
+
+input,select,button {padding:10px;margin:5px;}
+
+.error {color:red;font-size:12px;}
+
+.stats {display:flex;gap:20px;margin-bottom:20px;}
+.stats div {background:white;padding:10px;}
+
+table {width:100%;background:white;border-collapse:collapse;}
+td,th {border:1px solid #ddd;padding:10px;text-align:center;}
+
+.low {background:#ffe5e5;}
+</style>
+</head>
+
+<body>
+
+<h1>📦 Inventory</h1>
+
+<form id="form">
+<input id="kode" placeholder="Kode">
+<div class="error" id="errKode"></div>
+
+<input id="nama" placeholder="Nama">
+<div class="error" id="errNama"></div>
+
+<select id="kategori">
+<option value="">Kategori</option>
+<option>JACKET</option>
+<option>BAG</option>
+<option>SHOES</option>
+</select>
+<div class="error" id="errKategori"></div>
+
+<input type="number" id="stok" placeholder="Stok">
+<div class="error" id="errStok"></div>
+
+<input type="number" id="harga" placeholder="Harga">
+<div class="error" id="errHarga"></div>
+
+<input type="date" id="tanggal">
+<div class="error" id="errTanggal"></div>
+
+<button>Simpan</button>
+</form>
+
+<input id="search" placeholder="Cari...">
+<select id="filter">
+<option value="">Semua</option>
+<option>JACKET</option>
+<option>BAG</option>
+<option>SHOES</option>
+</select>
+
+<div class="stats">
+<div>Total: <b id="total"></b></div>
+<div>Nilai: <b id="nilai"></b></div>
+<div>Low: <b id="low"></b></div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Kode</th>
+<th>Nama</th>
+<th>Kategori</th>
+<th>Stok</th>
+<th>Harga</th>
+<th>Tanggal</th>
+<th>Aksi</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+
+<script>
+let items = JSON.parse(localStorage.getItem("items")) || [];
+let editIndex = null;
+
+const el = id => document.getElementById(id);
+
+// VALIDASI
+const validate = () => {
+    let valid = true;
+
+    ["kode","nama","kategori","stok","harga","tanggal"].forEach(f=>{
+        if(!el(f).value){
+            el("err"+f.charAt(0).toUpperCase()+f.slice(1)).textContent="Wajib";
+            valid=false;
+        } else {
+            el("err"+f.charAt(0).toUpperCase()+f.slice(1)).textContent="";
+        }
+    });
+
+    return valid;
+};
+
+// RENDER
+const render = () => {
+    const s = el("search").value.toLowerCase();
+    const f = el("filter").value;
+
+    const data = items
+    .filter(i=>i.nama.toLowerCase().includes(s)||i.kode.toLowerCase().includes(s))
+    .filter(i=>f?i.kategori===f:true);
+
+    el("tbody").innerHTML = data.map((i,idx)=>`
+    <tr class="${i.stok<5?'low':''}">
+        <td>${i.kode}</td>
+        <td>${i.nama}</td>
+        <td>${i.kategori}</td>
+        <td>${i.stok}</td>
+        <td>${i.harga}</td>
+        <td>${i.tanggal}</td>
+        <td>
+            <button data-edit="${idx}">Edit</button>
+            <button data-del="${idx}">Hapus</button>
+        </td>
+    </tr>
+    `).join("");
+
+    updateStats();
+    localStorage.setItem("items",JSON.stringify(items));
+};
+
+// STATS
+const updateStats = () => {
+    el("total").textContent = items.length;
+    el("nilai").textContent = items.reduce((s,i)=>s+i.harga*i.stok,0);
+    el("low").textContent = items.filter(i=>i.stok<5).length;
+};
+
+// SUBMIT
+el("form").addEventListener("submit",e=>{
+    e.preventDefault();
+    if(!validate()) return;
+
+    const data = {
+        kode: el("kode").value,
+        nama: el("nama").value,
+        kategori: el("kategori").value,
+        stok:+el("stok").value,
+        harga:+el("harga").value,
+        tanggal:el("tanggal").value
+    };
+
+    if(editIndex===null){
+        items.push(data);
+    } else {
+        items[editIndex]=data;
+        editIndex=null;
+    }
+
+    e.target.reset();
+    render();
+});
+
+// EVENT DELEGATION
+el("tbody").addEventListener("click",e=>{
+    if(e.target.dataset.edit!==undefined){
+        const i=items[e.target.dataset.edit];
+        Object.keys(i).forEach(k=>el(k).value=i[k]);
+        editIndex=e.target.dataset.edit;
+    }
+
+    if(e.target.dataset.del!==undefined){
+        if(confirm("Hapus?")){
+            items.splice(e.target.dataset.del,1);
+            render();
+        }
+    }
+});
+
+// SEARCH
+el("search").addEventListener("input",render);
+el("filter").addEventListener("change",render);
+
+render();
+</script>
+
+</body>
+</html> -->

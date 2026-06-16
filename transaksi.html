@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SECOND CHANCE</title>
+<title>TRANSAKSI - SECOND CHANCE</title>
 <style>
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -310,81 +310,56 @@ footer p { font-size: 12px; color: #666; }
 }
 
 
+.admin-link-badge{
+    border:1px solid #111;padding:8px 12px;font-size:11px;letter-spacing:1px;text-decoration:none;color:#111;
+}
+.page-title{padding:100px 20px 20px;text-align:center;}
+.catalog-grid-page{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    padding:0 20px 50px;
+}
+.product-card-link{color:inherit;text-decoration:none;display:block}
+.product-meta{font-size:11px;color:#777;margin-top:4px;letter-spacing:1px;}
+.catalog-toolbar{display:grid;grid-template-columns:1fr;gap:12px;max-width:900px;margin:0 auto 30px;padding:0 20px;}
+.detail-wrapper{padding:110px 20px 50px;max-width:1100px;margin:0 auto;}
+.detail-grid{display:grid;grid-template-columns:1fr;gap:30px;}
+.detail-image{width:100%;height:420px;object-fit:cover;border:1px solid #eee;background:#f5f5f5;}
+.detail-no-photo{height:420px;display:flex;align-items:center;justify-content:center;background:#f3f3f3;border:1px solid #eee;font-size:64px;color:#bbb;}
+.detail-info h2{font-size:28px;letter-spacing:3px;margin-bottom:12px;}
+.detail-info p{font-size:13px;color:#555;margin:10px 0;}
+.detail-price{font-size:24px;color:#111 !important;margin:18px 0 !important;}
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
+.info-badge{display:inline-block;border:1px solid #111;padding:8px 12px;font-size:11px;letter-spacing:1px;margin-bottom:16px;}
+@media(min-width:768px){
+    .catalog-toolbar{grid-template-columns:1fr 220px;}
+    .detail-grid{grid-template-columns:1fr 1fr;align-items:start;}
+}
+
 </style>
 </head>
 <body>
 
 <header>
     <div class="nav-container">
-        <div class="logo" id="home">
+        <div class="logo">
             <img src="logo.jpg" alt="Second Chance Logo">
             <h1>SECOND CHANCE</h1>
         </div>
         <nav>
             <a href="index.html">HOME</a>
             <a href="katalog.html">CATALOG</a>
-            <a href="https://wa.me/6200000000000?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20produk%20SECOND%20CHANCE." target="_blank" rel="noopener">CONTACT</a>
             <a href="admin.html" class="admin-link-badge">ADMIN</a>
         </nav>
     </div>
 </header>
 
-<section class="hero">
-    <div>
-        <h2>TIMELESS LUXURY</h2>
-        <p>CURATED PRELOVED FASHION</p>
-    </div>
+<section class="detail-wrapper">
+    <div class="detail-grid" id="transactionContainer"></div>
 </section>
 
-<div class="search-box" id="shop">
-    <input type="text" id="homeSearchInput" placeholder="SEARCH PRODUCT">
-    <button type="button" id="homeSearchBtn">SEARCH</button>
-</div>
-
-<div class="container">
-    <aside>
-        <h3>STATISTICS</h3>
-        <p>Total Produk: <span id="sidebarTotalProduk">0</span></p>
-        <p>Total Item: <span id="sidebarTotalItem">0</span></p>
-        <p>New Arrival: <span id="sidebarNewArrival">0</span></p>
-        <h3>FILTER</h3>
-        <label><input type="checkbox" class="home-category-filter" value="JACKET"> JACKET</label>
-        <label><input type="checkbox" class="home-category-filter" value="BAG"> BAG</label>
-        <label><input type="checkbox" class="home-category-filter" value="SHOES"> SHOES</label>
-        <label><input type="checkbox" class="home-category-filter" value="ACCESSORIES"> ACCESSORIES</label>
-    </aside>
-
-    <main>
-        <h2>NEW ARRIVALS</h2>
-        <div id="newArrivalsContainer"></div>
-
-        <h2>KATALOG PREVIEW</h2>
-        <table>
-            <thead>
-                <tr><th>NAME</th><th>CATEGORY</th><th>PRICE</th></tr>
-            </thead>
-            <tbody id="homeCatalogTableBody"></tbody>
-        </table>
-    </main>
-</div>
-
-
-<section class="inventory-section" id="buy-now-section">
-    <div class="inventory-wrapper">
-        <div class="inventory-header">
-            <h2>BELI SEKARANG</h2>
-            <p>Pilih produk favoritmu dari katalog dan lanjutkan ke halaman detail untuk pembelian.</p>
-        </div>
-        <div class="panel" style="text-align:center;">
-            <p style="font-size:13px;color:#666;margin-bottom:18px;">Semua barang yang tersedia bisa langsung dilihat di katalog customer.</p>
-            <div class="detail-actions" style="justify-content:center;">
-                <a href="katalog.html" class="inventory-btn" style="text-decoration:none;">LIHAT KATALOG</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer id="contact">
+<footer>
     <div>
         <h4>ABOUT</h4>
         <p>PreLoved Luxury System</p>
@@ -393,18 +368,21 @@ footer p { font-size: 12px; color: #666; }
         <h4>MENU</h4>
         <p>Home</p>
         <p>Catalog</p>
-        <p>Beli Sekarang</p>
     </div>
     <div>
-        <h4>CONTACT</h4>
-        <p><a href="https://wa.me/6200000000000?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20produk%20SECOND%20CHANCE." target="_blank" rel="noopener" style="color:inherit;">Chat via WhatsApp</a></p>
+        <h4>BELI SEKARANG</h4>
+        <p>Lengkapi data transaksi lalu konfirmasi pesananmu.</p>
     </div>
 </footer>
 
 <script>
 
 const STORAGE_KEY = 'secondChanceInventory';
-const defaultInventory = [];
+const defaultInventory = [
+    { id: crypto.randomUUID(), kode:'SC-001', nama:'Saint Laurent Denim', kategori:'JACKET', stok:3, harga:5150000, tanggalMasuk:'2026-04-15', foto:null },
+    { id: crypto.randomUUID(), kode:'SC-002', nama:'Loewe Puzzle Bag', kategori:'BAG', stok:7, harga:7395000, tanggalMasuk:'2026-04-16', foto:null },
+    { id: crypto.randomUUID(), kode:'SC-003', nama:'Golden Goose Superstar', kategori:'SHOES', stok:2, harga:3450000, tanggalMasuk:'2026-04-18', foto:null }
+];
 const formatRupiah = v => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(v);
 const loadInventory = () => {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -414,86 +392,80 @@ const loadInventory = () => {
     }
     return saved;
 };
-const saveInventory = (inventory) => localStorage.setItem(STORAGE_KEY, JSON.stringify(inventory));
 
-let inventory = loadInventory();
-let currentKeyword = '';
-let currentCategories = [];
+const inventory = loadInventory();
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+const transactionContainer = document.getElementById('transactionContainer');
+const item = inventory.find(product => product.id === id);
 
-const homeSearchInput = document.getElementById('homeSearchInput');
-const homeSearchBtn = document.getElementById('homeSearchBtn');
-const homeCatalogTableBody = document.getElementById('homeCatalogTableBody');
-const newArrivalsContainer = document.getElementById('newArrivalsContainer');
-const categoryChecks = [...document.querySelectorAll('.home-category-filter')];
-
-const getFilteredInventory = () => inventory.filter(item => {
-    const keyword = currentKeyword.toLowerCase();
-    const keywordMatch = !keyword || item.nama.toLowerCase().includes(keyword) || item.kode.toLowerCase().includes(keyword);
-    const categoryMatch = !currentCategories.length || currentCategories.includes(item.kategori);
-    return keywordMatch && categoryMatch;
-});
-
-function renderSidebarStats(){
-    document.getElementById('sidebarTotalProduk').textContent = inventory.length;
-    document.getElementById('sidebarTotalItem').textContent = inventory.reduce((sum,item)=>sum+item.stok,0);
-    document.getElementById('sidebarNewArrival').textContent = [...inventory]
-        .sort((a,b)=> new Date(b.tanggalMasuk) - new Date(a.tanggalMasuk))
-        .slice(0,6).length;
-}
-
-function renderNewArrivals(){
-    const latest = [...getFilteredInventory()]
-        .sort((a,b)=> new Date(b.tanggalMasuk) - new Date(a.tanggalMasuk))
-        .slice(0,6);
-
-    if(!latest.length){
-        newArrivalsContainer.innerHTML = '<p class="empty-state">Belum ada produk yang sesuai.</p>';
-        return;
-    }
-
-    newArrivalsContainer.innerHTML = latest.map(item => `
-        <a class="product-card-link" href="detail.html?id=${encodeURIComponent(item.id)}">
-            <div class="card">
-                ${item.foto ? `<img src="${item.foto}" alt="${item.nama}">` : `<div class="arrival-no-photo">📷</div>`}
-                <h3>${item.nama.toUpperCase()}</h3>
-                <p>${formatRupiah(item.harga)}</p>
-                <div class="product-meta">${item.kategori} • ${item.tanggalMasuk}</div>
+if(!item){
+    transactionContainer.innerHTML = `
+        <div class="panel" style="grid-column:1/-1;text-align:center;">
+            <h3>Produk tidak ditemukan</h3>
+            <p style="margin-top:10px;">Produk yang kamu pilih tidak tersedia untuk transaksi.</p>
+            <div class="detail-actions" style="justify-content:center;">
+                <a href="katalog.html" class="inventory-btn" style="text-decoration:none;">KEMBALI KE KATALOG</a>
             </div>
-        </a>
-    `).join('');
+        </div>
+    `;
+} else {
+    transactionContainer.innerHTML = `
+        <div>
+            ${item.foto ? `<img class="detail-image" src="${item.foto}" alt="${item.nama}">` : `<div class="detail-no-photo">📷</div>`}
+        </div>
+        <div class="detail-info">
+            <div class="info-badge">TRANSAKSI</div>
+            <h2>${item.nama.toUpperCase()}</h2>
+            <p>Kode Produk: ${item.kode}</p>
+            <p>Kategori: ${item.kategori}</p>
+            <p>Stok Tersedia: ${item.stok}</p>
+            <p class="detail-price">${formatRupiah(item.harga)}</p>
+            <form id="transactionForm" class="inventory-form" style="margin-top:18px;">
+                <input type="text" id="buyerName" placeholder="Nama Lengkap">
+                <input type="tel" id="buyerPhone" placeholder="Nomor WhatsApp">
+                <textarea id="buyerAddress" placeholder="Alamat Lengkap" style="width:100%;padding:12px;border:1px solid #ccc;font-size:13px;min-height:110px;font-family:inherit;"></textarea>
+                <select id="paymentMethod">
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="Transfer Bank">Transfer Bank</option>
+                    <option value="E-Wallet">E-Wallet</option>
+                    <option value="COD">COD</option>
+                </select>
+                <div class="panel" style="padding:14px;background:#fcfcfc;">
+                    <h3 style="margin-bottom:10px;">RINGKASAN PESANAN</h3>
+                    <p>Produk: ${item.nama}</p>
+                    <p>Kode: ${item.kode}</p>
+                    <p>Total: ${formatRupiah(item.harga)}</p>
+                </div>
+                <div id="transactionMessage" class="error-box"></div>
+                <div class="detail-actions">
+                    <a href="detail.html?id=${encodeURIComponent(item.id)}" class="inventory-btn" style="text-decoration:none;">KEMBALI KE DETAIL</a>
+                    <button type="submit" class="inventory-btn secondary">KONFIRMASI PESANAN</button>
+                </div>
+            </form>
+        </div>
+    `;
+
+    const form = document.getElementById('transactionForm');
+    const message = document.getElementById('transactionMessage');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const buyerName = document.getElementById('buyerName').value.trim();
+        const buyerPhone = document.getElementById('buyerPhone').value.trim();
+        const buyerAddress = document.getElementById('buyerAddress').value.trim();
+        const paymentMethod = document.getElementById('paymentMethod').value;
+
+        if(!buyerName || !buyerPhone || !buyerAddress || !paymentMethod){
+            message.textContent = 'Lengkapi semua data transaksi terlebih dahulu.';
+            return;
+        }
+
+        message.textContent = '';
+        const text = `Halo, saya ingin konfirmasi pesanan.%0A%0ANama: ${encodeURIComponent(buyerName)}%0AWhatsApp: ${encodeURIComponent(buyerPhone)}%0AAlamat: ${encodeURIComponent(buyerAddress)}%0AProduk: ${encodeURIComponent(item.nama)}%0AKode: ${encodeURIComponent(item.kode)}%0ATotal: ${encodeURIComponent(formatRupiah(item.harga))}%0AMetode Pembayaran: ${encodeURIComponent(paymentMethod)}`;
+        window.open(`https://wa.me/6200000000000?text=${text}`, '_blank');
+    });
 }
-
-function renderHomeCatalogTable(){
-    const list = getFilteredInventory().sort((a,b)=> new Date(b.tanggalMasuk) - new Date(a.tanggalMasuk)).slice(0,8);
-    if(!list.length){
-        homeCatalogTableBody.innerHTML = '<tr><td colspan="3">Tidak ada produk yang sesuai.</td></tr>';
-        return;
-    }
-    homeCatalogTableBody.innerHTML = list.map(item => `
-        <tr>
-            <td><a href="detail.html?id=${encodeURIComponent(item.id)}" style="color:inherit;text-decoration:none;">${item.nama}</a></td>
-            <td>${item.kategori}</td>
-            <td>${formatRupiah(item.harga)}</td>
-        </tr>
-    `).join('');
-}
-
-function applyHomeFilters(){
-    currentKeyword = homeSearchInput.value.trim();
-    currentCategories = categoryChecks.filter(cb => cb.checked).map(cb => cb.value);
-    renderNewArrivals();
-    renderHomeCatalogTable();
-}
-
-homeSearchBtn.addEventListener('click', applyHomeFilters);
-homeSearchInput.addEventListener('keydown', e => {
-    if(e.key === 'Enter'){ e.preventDefault(); applyHomeFilters(); }
-});
-categoryChecks.forEach(cb => cb.addEventListener('change', applyHomeFilters));
-
-renderSidebarStats();
-renderNewArrivals();
-renderHomeCatalogTable();
 </script>
 </body>
 </html>
